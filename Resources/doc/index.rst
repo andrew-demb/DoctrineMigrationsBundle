@@ -53,6 +53,7 @@ application:
         # available in version >= 1.3. Path to your custom migrations template
         custom_template: ~
         all_or_nothing: false
+        check_database_platform: true
 
 Usage
 -----
@@ -191,7 +192,7 @@ fill in the ``up()`` and ``down()`` methods), see the official Doctrine Migratio
 `documentation`_.
 
 .. tip::
-    If you need to use another database connection to execute migrations you may use option ``--db="doctrine-connection-name"`` 
+    If you need to use another database connection to execute migrations you may use option ``--db="doctrine-connection-name"``
     where ``doctrine-connection-name`` is valid Doctrine connection defined in doctrine.yaml
 
 Running Migrations during Deployment
