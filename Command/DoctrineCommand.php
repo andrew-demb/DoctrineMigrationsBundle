@@ -99,7 +99,7 @@ abstract class DoctrineCommand extends BaseCommand
             $configuration->setCustomTemplate($container->getParameter('doctrine_migrations.custom_template'));
         }
 
-        if (method_exists($configuration, 'isDatabasePlatformChecked')) {
+        if (method_exists($configuration, 'setCheckDatabasePlatform')) {
             $configuration->setCheckDatabasePlatform($container->getParameter('doctrine_migrations.check_database_platform'));
         }
 
