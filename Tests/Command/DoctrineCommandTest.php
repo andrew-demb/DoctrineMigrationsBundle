@@ -73,11 +73,9 @@ class DoctrineCommandTest extends TestCase
             ->method('setAllOrNothing')
             ->with(false);
 
-        if (method_exists($configurationMock, 'setCheckDatabasePlatform')) {
-            $configurationMock->expects($this->once())
-                ->method('setCheckDatabasePlatform')
-                ->with(true);
-        }
+        $configurationMock->expects($this->once())
+            ->method('setCheckDatabasePlatform')
+            ->with(true);
 
         DoctrineCommand::configureMigrations($this->getContainer(), $configurationMock);
     }

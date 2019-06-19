@@ -85,6 +85,7 @@ abstract class DoctrineCommand extends BaseCommand
         $configuration->setMigrationsColumnLength($container->getParameter('doctrine_migrations.column_length'));
         $configuration->setMigrationsExecutedAtColumnName($container->getParameter('doctrine_migrations.executed_at_column_name'));
         $configuration->setAllOrNothing($container->getParameter('doctrine_migrations.all_or_nothing'));
+        $configuration->setCheckDatabasePlatform($container->getParameter('doctrine_migrations.check_database_platform'));
 
         // Migrations is not register from configuration loader
         if (! ($configuration instanceof AbstractFileConfiguration)) {
@@ -97,10 +98,6 @@ abstract class DoctrineCommand extends BaseCommand
 
         if (method_exists($configuration, 'getCustomTemplate') && empty($configuration->getCustomTemplate())) {
             $configuration->setCustomTemplate($container->getParameter('doctrine_migrations.custom_template'));
-        }
-
-        if (method_exists($configuration, 'setCheckDatabasePlatform')) {
-            $configuration->setCheckDatabasePlatform($container->getParameter('doctrine_migrations.check_database_platform'));
         }
 
         $organizeMigrations = $container->getParameter('doctrine_migrations.organize_migrations');
